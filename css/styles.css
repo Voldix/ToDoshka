@@ -1,0 +1,183 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: hsl(0, 0%, 80%);
+    min-width: 350px;
+    /* for footer */
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto
+}
+
+.header,
+.card {
+    border-radius: 10px;
+    border: 3px solid hsl(0, 0%, 30%);
+}
+
+#list {
+    padding: 0;
+    margin: 0;
+}
+
+.list-body {
+    padding: 0;
+}
+
+.list-item {
+    list-style: none;
+    margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-item-label:hover,
+[data-list-item-checkbox]:hover {
+    cursor: pointer;
+}
+
+.list-item-label:hover > [data-list-item-text] {
+    color: hsl(0, 0%, 30%);
+    text-decoration: line-through;
+}
+
+[data-list-item-checkbox]:checked ~ [data-list-item-text] {
+    text-decoration: line-through;
+    color: hsl(0, 0%, 65%);
+}
+
+
+.date-container,
+.time-container,
+.motivational-phrases {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-header,
+.card-footer {
+    padding: .75rem;
+}
+
+/* input todo  */
+.input-text {
+    border-radius: 5px;
+    border: 1px solid hsl(0, 0%, 30%);
+    outline: 0;
+    transition: all .2s linear;
+    padding: .3em;
+}
+
+.input-text:focus,
+.input-text:hover {
+    border: 1px solid hsl(0, 0%, 60%);
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 40%);
+}
+
+/* add todo button */
+.btn-add {
+    width: 90px;
+    padding: .25rem;
+    outline: none;
+    border: 1px solid hsl(0, 0%, 30%);
+    border-radius: 10px;
+    background-color: white;
+    font-weight: 600;
+    transition: all .2s linear;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+    border: 1px solid hsl(0, 0%, 60%);
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 40%);
+}
+
+/* delete todo button */
+[data-button-delete] {
+    border: 1px solid hsl(0, 0%, 60%);
+    border-radius: .25em;
+    margin-left: .5em;
+    transition: all .2s linear;
+}
+
+[data-button-delete]:hover,
+[data-button-delete]:focus {
+    background-color: white;
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 40%);
+}
+
+
+/* for the input element with type="checkbox" */
+.custom-checkbox > input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* for the label element associated with .custom-checkbox */
+.custom-checkbox > span {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+/* creating a pseudo-element in label "before" with the following styles */
+.custom-checkbox > span::before {
+    content: '';
+    display: inline-block;
+    width: 1.25em;
+    height: 1.25em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid hsl(0, 0%, 60%);
+    border-radius: .25em;
+    margin-right: .5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+/* styles when hovering over the checkbox */
+.custom-checkbox > input:not(:disabled):not(:checked) + span:hover::before {
+    box-shadow: 0 0 5px 0 hsl(0, 0%, 40%);
+}
+
+/* styles for the active checkbox (when you click on it) */
+.custom-checkbox > input:not(:disabled):active + span::before {
+    background-color: hsl(0, 0%, 30%);
+    border-color: hsl(0, 0%, 40%);
+}
+
+/* styles for the checkbox in focus */
+.custom-checkbox > input:focus + span::before {
+    box-shadow: 0 0 0 0.2rem hsla(0, 0%, 30%, 0.3);
+}
+
+/* styles for a checkbox that is in focus and not in the checked state */
+.custom-checkbox > input:focus:not(:checked) + span::before {
+    border-color: hsl(0, 0%, 40%);
+}
+
+/* styles for a checkbox in the checked state */
+.custom-checkbox > input:checked + span::before {
+    border-color: hsl(0, 0%, 40%);
+    background-color: hsl(0, 0%, 30%);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+footer {
+    margin-bottom: 1rem;
+}

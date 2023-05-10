@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js" defer></script>
+    <title>ToDoshka</title>
+</head>
+
+<body>
+    <header>
+        <div class="container bg-light header mb-3 pt-3 pb-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="date-container text-center">
+                        Today:
+                    </div>
+                    <div class="time-container text-center">
+                        Time:
+                    </div>
+                    <div class="motivational-phrases text-center pt-3">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container mb-3 px-0">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card text-center mb-3">
+                        <form id="new-todo-form">
+                            <div class="card-header">
+                                <label for="todo-input">What are we doing today?</label>
+                            </div>
+                            <div class="card-body">
+                                <input class="input-text" type="text" id="todo-input">
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn-add" type="submit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card text-center task-list">
+                        <div class="card-header">
+                            The list of Tasks
+                        </div> 
+                        <div class="card-body list-body">  
+                            <ul id="list">
+            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center">
+        <div class="footer-text">
+            &#169;2023 - Developed for portfolio by Vladi Akhrem
+        </div>
+    </footer>
+    <template id="list-item-template">
+        <li class="list-item">
+            <label class="list-item-label custom-checkbox">
+                <input type="checkbox" value="value-1" data-list-item-checkbox>
+                <span data-list-item-text></span>
+            </label>
+            <button data-button-delete>&#10006;</button>
+        </li>
+    </template>
+</body>
+
+</html>
